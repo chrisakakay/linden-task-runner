@@ -1,0 +1,33 @@
+{
+  "name": "linden-task-runner",
+  "version": "0.1.0",
+  "description": "Task runner for linden",
+  "author": "Krisztian Nagy <chrisakakay@gmail.com> (http://chrisakakay.github.io/)",
+  "homepage": "https://github.com/chrisakakay/linden-task-runner",
+  "repository": "chrisakakay/linden-task-runner",
+  "bugs": {
+    "url": "https://github.com/chrisakakay/linden-task-runner/issues",
+    "email": "chrisakakay@gmail.com"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint index.js",
+    "test": "jest",
+    "prepush": "npm run lint && npm run test"
+  },
+  "keywords": [
+    "linden"
+  ],
+  "dependencies": {
+    "phantomjs-prebuilt": "^2.1.7",
+    "selenium-webdriver": "^3.0.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.14.1",
+    "jest": "^18.1.0"
+  }
+}
