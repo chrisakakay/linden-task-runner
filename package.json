@@ -16,7 +16,7 @@
   "scripts": {
     "lint": "eslint index.js",
     "test": "jest",
-    "build": "./node_modules/.bin/uglifyjs -c -m -- lib/sense.js -o lib/sense.min.j",
+    "build": "./node_modules/.bin/uglifyjs -c -m -o lib/sense.min.js -- lib/sense.js ",
     "prepush": "npm run lint && npm run test"
   },
   "keywords": [
