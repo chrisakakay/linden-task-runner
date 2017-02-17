@@ -6,7 +6,7 @@ const simpleConf = {
         cases: [
             {
                 name: 'chrisakakay',
-                url: 'http://chrisakakay.github.io',
+                url: 'http://jquery.com',
                 viewport: { 'width': 480, height: 640 }
             }
         ]

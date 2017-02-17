@@ -5,6 +5,7 @@ const path      = require('path');
 const webdriver = require('selenium-webdriver');
 const phantom   = webdriver.Capabilities.phantomjs().set('phantomjs.binary.path', require('phantomjs-prebuilt').path);
 const script    =  fs.readFileSync(path.join(__dirname, './lib/sense.js'), 'utf8');
+const script2   =  fs.readFileSync(path.join(__dirname, './lib/sense-viveka.js'), 'utf8');
 let cases       = [];
 let driver      = null;
 let savePath;
@@ -29,8 +30,15 @@ function runNext() {
         })
         .then((response) => {
             fs.writeFile(path.join(savePath, `${testCase.name}.json`), response, 'utf-8');
-            runNext();
+            return driver.executeScript(`${script2}\ntry { Sense.init(document.body); return Sense.getJSON(); } catch(e) { return { error: e }; }`);
         })
+        .then((response) => {
+            fs.writeFile(path.join(savePath, `${testCase.name}-viveka.json`), response, 'utf-8');
+            return;
+        })
+        .then(() => {
+            runNext();
+        });
 }
 
 module.exports.init = (config) => {

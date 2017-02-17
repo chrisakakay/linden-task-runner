@@ -16,6 +16,7 @@
   "scripts": {
     "lint": "eslint index.js",
     "test": "jest",
+    "build": "./node_modules/.bin/uglifyjs -c -m -- lib/sense.js -o lib/sense.min.j",
     "prepush": "npm run lint && npm run test"
   },
   "keywords": [
@@ -28,6 +29,7 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^3.14.1",
-    "jest": "^18.1.0"
+    "jest": "^18.1.0",
+    "uglify-js": "^2.7.5"
   }
 }
